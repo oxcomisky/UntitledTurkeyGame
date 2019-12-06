@@ -9,8 +9,13 @@ package untitledturkeygame;
  *
  * @author oxcom
  */
-public abstract interface MapInterface {
-    public String getLocation();
-    public void setLocation(String newLocation);
-    Boolean connectedTo();
+public interface MapInterface {
+    //public String getLocation();
+    //public void setLocation(String newLocation);
+    //Boolean connectedTo();
+    
+    public void addEdge();
+    
+    public void printGraph();
+    
 }
