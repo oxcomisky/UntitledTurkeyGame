@@ -11,13 +11,13 @@ public class Player implements PlayerInterface {
     
     String name;
     
-    String location;
+    int playerLocation;
         
     public boolean eventArray[];
     
     @Override
     public void reset(){
-        location = "Barn";
+        playerLocation = 0;
         Arrays.fill(eventArray, false);
     }
     

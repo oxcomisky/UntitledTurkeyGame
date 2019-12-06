@@ -40,9 +40,21 @@ public abstract class Map implements MapInterface {
         graph.adjListArray[src].add(dest); 
         graph.adjListArray[dest].add(src); 
     } 
-       
-    static void printGraph(Graph graph) 
-    {        
+    
+    static void printGraph(Graph graph, int playerLocation, int src) {        
+        for(int v = 0; v < graph.V; v++) { 
+            if(playerLocation == src){
+            System.out.println("Adjacency list of vertex "+ v); 
+            System.out.print("head"); 
+            for(Integer pCrawl: graph.adjListArray[v]){ 
+                System.out.print(" -> "+pCrawl); 
+            } 
+            System.out.println("\n"); 
+            } 
+        } 
+    }
+    /*
+    static void printGraph(Graph graph) {        
         for(int v = 0; v < graph.V; v++) 
         { 
             System.out.println("Adjacency list of vertex "+ v); 
@@ -53,10 +65,14 @@ public abstract class Map implements MapInterface {
             System.out.println("\n"); 
         } 
     } 
-       
+      */ 
     // Driver program to test above functions 
     public static void main(String args[]) 
     { 
+        
+        Player P1 = new Player();
+        P1.playerLocation = 0;
+        int src = 1;
         // create the graph given in above figure 
         int V = 4; 
         Graph graph = new Graph(V);  
@@ -74,6 +90,6 @@ public abstract class Map implements MapInterface {
         // 1 = House <-> 3 = Room
         addEdge(graph, 1, 3); 
         
-        printGraph(graph); 
+        printGraph(graph, P1.playerLocation, src); 
     } 
 }     

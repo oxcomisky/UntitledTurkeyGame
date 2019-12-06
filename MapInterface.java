@@ -12,8 +12,7 @@ package untitledturkeygame;
 public interface MapInterface {
     //public String getLocation();
     //public void setLocation(String newLocation);
-    //Boolean connectedTo();
-    
+    //Boolean connectedTo();    
     public void addEdge();
     
     public void printGraph();
