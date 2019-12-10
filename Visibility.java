@@ -1,7 +1,5 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Sets the visibility of the GUI TitleScreen Buttons and Panels
  */
 package untitledturkeygame;
 
@@ -12,10 +10,23 @@ package untitledturkeygame;
 public class Visibility {
     GUI gui;
     //constructor
+
+    /**
+     *
+     * @param gui
+     */
     public Visibility(GUI gui){
         this.gui = gui;
     }
     //sets visibility of the title screen to true and the secondary screen to false
+
+    /**
+     * ensure titlePanel Visible = true
+     * ensure startButtonPanel Visible = true
+     * ensure mainTextPanel Visible = false
+     * ensure selectionButtonPanel Visible = false
+     * ensure resetButtonPanel Visible = false
+     */
     public void showTitleScreen(){
         gui.titlePanel.setVisible(true);
         gui.startButtonPanel.setVisible(true);
@@ -25,6 +36,14 @@ public class Visibility {
         gui.resetButtonPanel.setVisible(false);
     }
     //sets visibility of the secondary screen to true and the title screen to false
+
+    /**
+     * ensure titlePanel Visible = false
+     * ensure startButtonPanel Visible = false
+     * ensure mainTextPanel Visible = true
+     * ensure selectionButtonPanel Visible = true
+     * ensure resetButtonPanel Visible = true
+     */
     public void notTitleScreen(){
         gui.titlePanel.setVisible(false);
         gui.startButtonPanel.setVisible(false);

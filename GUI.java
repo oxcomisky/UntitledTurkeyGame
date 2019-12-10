@@ -1,7 +1,5 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * GUI Class for UntitledTurkeyGame
  */
 package untitledturkeygame;
 
@@ -20,6 +18,10 @@ import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import untitledturkeygame.Game.ChoiceHandler;
 
+/**
+ *
+ * @author Jason, Jon
+ */
 public class GUI {
     String position;
     JFrame window;
@@ -46,6 +48,11 @@ public class GUI {
     final int HEIGHT = 720;
     
     //constructor
+
+    /**
+     *
+     * @param CHandler (Choice Handler)
+     */
     public void createGUI(ChoiceHandler CHandler){
         //create the window
         window = new JFrame();

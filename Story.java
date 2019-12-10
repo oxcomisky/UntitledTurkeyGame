@@ -1,7 +1,5 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * The text and methods used to create the Story of UntitledTurkeyGame
  */
 package untitledturkeygame;
 
@@ -37,6 +35,13 @@ public class Story {
     
     
     //constructor
+
+    /**
+     *
+     * @param game
+     * @param gui
+     * @param V
+     */
     public Story(Game game,GUI gui,Visibility V){
         this.game = game;
         this.gui = gui;
@@ -45,6 +50,11 @@ public class Story {
     
     //this method checks the intended nextPosition
     //defined within the story methods
+
+    /**
+     *
+     * @param nextPosition
+     */
     public void selectPosition(String nextPosition){
         switch (nextPosition){
             case "turkeyTalk": turkeyTalk(); break;
@@ -66,6 +76,10 @@ public class Story {
     //begin story methods
     //these methods change the text of the textarea and the buttons.
     //they also set the nextPosition strings to their correct values to be chosen by the switch statement above.
+
+    /**
+     *
+     */
      public void barn(){
         if (barn.getVisited()){
             gui.gameTextArea.setText("There is a small flock of turkeys to your right, they seem to be upset and discussing something.\n"
@@ -87,6 +101,10 @@ public class Story {
         game.nextPosition4 = "";
         barn.setVisited(true);
     }
+
+    /**
+     * @require turkeyTalk Visited = true
+     */
     public void turkeyTalk(){
         gui.gameTextArea.setText("You strut over to the other turkeys, your body feels awkward as you move.\n"
                 + "\"Its the Apocalypse!\", you hear one turkey proclaim, who is standing on a hay bale. \n"
@@ -103,6 +121,10 @@ public class Story {
         game.nextPosition4 = "youWin";
         turkeyTalk.setVisited(true);
     }
+
+    /**
+     *@require seeTheLight Visited = true
+     */
     public void seeTheLight(){
         gui.gameTextArea.setText("You walk into the light, it seems to be the only thing in the world at the moment.\n"
                     + "For some reason you remember that around the time of year that it stays cold during the day,\n"
@@ -118,6 +140,10 @@ public class Story {
         game.nextPosition4 = "pigginOut";
         seeTheLight.setVisited(true);
     }
+
+    /**
+     *@require pigginOut Visited = true
+     */
     public void pigginOut(){
         if(theGobbling.getVisited()){
             gui.gameTextArea.setText("However, you dont have a plan. So you decide to go ask the pigs.\n"
@@ -140,6 +166,9 @@ public class Story {
         pigginOut.setVisited(true);
     }
     
+    /**
+     * @require theGobbling Visited = true
+     */
     public void theGobbling(){
         gui.gameTextArea.setText("You feel a rush of courage come over you as you wade through\n"
                 + "to the front of the flock. When you get to the front you take her place on the hay bale.\n"
@@ -158,6 +187,9 @@ public class Story {
         theGobbling.setVisited(true);
     }
     
+    /**
+     * @require forTheGreaterGood Visited = true
+     */
     public void forTheGreaterGood(){
         gui.gameTextArea.setText("You watch as your turkey bretheren make a valiant push to the farmhouse.\n"
                 + "You know none will survive. You know Farmer Cole and his family will not survive. \n"
@@ -174,6 +206,9 @@ public class Story {
         youLose.setVisited(true);
     }
     
+    /**
+     *@require youDied1 Visited = true
+     */
     public void youDied1(){
         gui.gameTextArea.setText("They look at you kind of funny and shrug as much as pigs can shrug.\n"
                 + "So you fly over the fence and join them. You are having so much fun that you don't notice\n"
@@ -195,6 +230,10 @@ public class Story {
     
     //reset
     //sets all of the visited boolean values to false.
+
+    /**
+     * @ensure Boolean = False
+     */
     public void reset(){
         barn.setVisited(Boolean.FALSE);
         turkeyTalk.setVisited(Boolean.FALSE);

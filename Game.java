@@ -1,7 +1,5 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Game Class and Choice Handler Class for plaer choice selection.
  */
 package untitledturkeygame;
 
@@ -20,10 +18,19 @@ public class Game {
     GUI gui = new GUI();
     Visibility V = new Visibility(gui);
     Story story = new Story(this,gui,V);
+
+    /**
+     *
+     * @param args
+     */
     public static void main(String[] args){
         new Game(); //call game
     }
     //constructor
+
+    /**
+     * require showTitleScreen = true
+     */
     public Game(){
         gui.createGUI(CHandler);
         V.showTitleScreen();
@@ -32,6 +39,10 @@ public class Game {
     //choice handler allows for a clean way to switch between each story element
     //as well as start and reset the game
     //this class allows for one method to handle all of the button presses
+
+    /**
+     * @ensure choice (return the players choice)
+     */
     public class ChoiceHandler implements ActionListener{
         public void actionPerformed(ActionEvent evt){
             String choice = evt.getActionCommand();
