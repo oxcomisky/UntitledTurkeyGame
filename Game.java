@@ -12,7 +12,7 @@ import java.awt.event.ActionListener;
 
 /**
  *
- * @author oxcom
+ * @author Jon Comisky, Jason Bendickson
  */
 public class Game {
     String nextPosition1, nextPosition2, nextPosition3, nextPosition4;
@@ -22,8 +22,6 @@ public class Game {
     Story story = new Story(this,gui,V);
     public static void main(String[] args){
         new Game();
-        
-        
     }
     public Game(){
         gui.createGUI(CHandler);
@@ -34,6 +32,7 @@ public class Game {
         public void actionPerformed(ActionEvent evt){
             String choice = evt.getActionCommand();
                 switch(choice){
+                    case "reset": V.showTitleScreen();break;
                     case "start": V.notTitleScreen();story.barn(); break;
                     case "B1": story.selectPosition(nextPosition1); break;
                     case "B2": story.selectPosition(nextPosition2); break;

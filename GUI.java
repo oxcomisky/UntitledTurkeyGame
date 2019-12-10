@@ -7,14 +7,12 @@ package untitledturkeygame;
 
 /**
  *
- * @author oxcom
+ * @author Jon Comisky, Jason Bendickson
  */
 import java.awt.Color;
 import java.awt.Container;
 import java.awt.Font;
 import java.awt.GridLayout;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -39,14 +37,13 @@ public class GUI {
     JPanel mainTextPanel;
     JPanel selectionButtonPanel;
     JTextArea gameTextArea;
-    Font TitleFont = new Font("Consolas",Font.PLAIN, 140);
-    Font NormalFont = new Font("Consolas",Font.PLAIN, 24);
+    Font TitleFont = new Font("Consolas",Font.PLAIN, 80);
+    Font NormalFont = new Font("Consolas",Font.PLAIN, 14);
     Font StartButtonFont = new Font("Consolas",Font.BOLD,60);
-    Font TextFont = new Font("Consolas",Font.PLAIN,14);
-    TitleScreenHandler SBHandler = new TitleScreenHandler();
+    Font TextFont = new Font("Consolas",Font.PLAIN,10);
     
-    final int WIDTH = 1920;
-    final int HEIGHT = 1080;
+    final int WIDTH = 1080;
+    final int HEIGHT = 720;
     
     public void createGUI(ChoiceHandler CHandler){
         window = new JFrame();
@@ -102,7 +99,7 @@ public class GUI {
         mainTextPanel.add(gameTextArea);
         
         selectionButtonPanel = new JPanel();
-        selectionButtonPanel.setBounds(WIDTH/4, HEIGHT/2, WIDTH/2, 2*HEIGHT/5);
+        selectionButtonPanel.setBounds(WIDTH/10, HEIGHT/2, 8*WIDTH/10, 2*HEIGHT/5);
         selectionButtonPanel.setBackground(Color.black);
         selectionButtonPanel.setVisible(true);
         selectionButtonPanel.setLayout(new GridLayout(4,1));
@@ -150,6 +147,8 @@ public class GUI {
         reset.setFont(NormalFont);
         reset.setBackground(Color.black);
         reset.setForeground(Color.white);
+        reset.addActionListener(CHandler);
+        reset.setActionCommand("reset");
         resetButtonPanel.setBackground(Color.DARK_GRAY);
         resetButtonPanel.setBounds(4*WIDTH/10, 0 , 2*WIDTH/10, HEIGHT/11);
         resetButtonPanel.add(reset);
@@ -160,10 +159,5 @@ public class GUI {
         window.setVisible(true);
         
         
-    }
-    public class TitleScreenHandler implements ActionListener{
-        public void actionPerformed(ActionEvent evt){
-            
-        }
     }
 }

@@ -7,7 +7,7 @@ package untitledturkeygame;
 
 /**
  *
- * @author oxcom
+ * @author Jon Comisky, Jason Bendickson
  */
 public class Visibility {
     GUI gui;
