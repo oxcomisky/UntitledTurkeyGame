@@ -21,13 +21,17 @@ public class Game {
     Visibility V = new Visibility(gui);
     Story story = new Story(this,gui,V);
     public static void main(String[] args){
-        new Game();
+        new Game(); //call game
     }
+    //constructor
     public Game(){
         gui.createGUI(CHandler);
         V.showTitleScreen();
     }
     
+    //choice handler allows for a clean way to switch between each story element
+    //as well as start and reset the game
+    //this class allows for one method to handle all of the button presses
     public class ChoiceHandler implements ActionListener{
         public void actionPerformed(ActionEvent evt){
             String choice = evt.getActionCommand();

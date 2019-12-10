@@ -36,12 +36,16 @@ public class Story {
     
     
     
-    
+    //constructor
     public Story(Game game,GUI gui,Visibility V){
         this.game = game;
         this.gui = gui;
         this.V = V;
-    }public void selectPosition(String nextPosition){
+    }
+    
+    //this method checks the intended nextPosition
+    //defined within the story methods
+    public void selectPosition(String nextPosition){
         switch (nextPosition){
             case "turkeyTalk": turkeyTalk(); break;
             case "seeTheLight": seeTheLight(); break;
@@ -58,6 +62,10 @@ public class Story {
             
         }
     }
+    
+    //begin story methods
+    //these methods change the text of the textarea and the buttons.
+    //they also set the nextPosition strings to their correct values to be chosen by the switch statement above.
      public void barn(){
         if (barn.getVisited()){
             gui.gameTextArea.setText("There is a small flock of turkeys to your right, they seem to be upset and discussing something.\n"
@@ -183,7 +191,10 @@ public class Story {
         reset();
         youDied1.setVisited(true);
     }
+    //end of story methods
     
+    //reset
+    //sets all of the visited boolean values to false.
     public void reset(){
         barn.setVisited(Boolean.FALSE);
         turkeyTalk.setVisited(Boolean.FALSE);
