@@ -11,7 +11,6 @@ package untitledturkeygame;
  */
 
 public class Story {
-    String position;
     GUI gui;
     Game game;
     Visibility V;
@@ -106,12 +105,30 @@ public class Story {
         gui.B2.setText("Keep going, maybe you can find a way off this farm before its too late.");
         game.nextPosition2 = "thePond";
         gui.B3.setText("Walk slowly into the light, for you have accepted that it could be you.");
-        game.nextPosition3 = "theCatsPajamas";
+        game.nextPosition3 = "thePond";
         gui.B4.setText("You feel drawn back to the pig-pen, maybe I should go talk to them.");
         game.nextPosition4 = "pigginOut";
         seeTheLight.setVisited(true);
     }
     public void pigginOut(){
+        if(theGobbling.getVisited()){
+            gui.gameTextArea.setText("However, you dont have a plan. So you decide to go ask the pigs.\n"
+                    + "You approach the pigs, they are snorting and oinking and rolling in the mud.");
+        }else{
+            gui.gameTextArea.setText("You approach the pigs, they are snorting and oinking and rolling in the mud.");
+        }
+        gui.B1.setText("Ask the pigs if you can join them, they seem to be having a blast.");
+        game.nextPosition1 = "youDied1";
+        gui.B2.setText("Ask the pigs for help.");
+        if(theGobbling.getVisited()){
+            game.nextPosition2 = "threeLittlePigs";
+        }else{
+            game.nextPosition2 = "";
+        }
+        gui.B3.setText("...");
+        game.nextPosition3 = "";
+        gui.B4.setText("...");
+        game.nextPosition4 = "";
         pigginOut.setVisited(true);
     }
     
@@ -125,11 +142,67 @@ public class Story {
         gui.B1.setText("Lead the charge to the farmhouse, though there's no real plan.");
         game.nextPosition1 = "farmHouseTurkey";
         gui.B2.setText("Watch the other turkeys as they charge toward the farmhouse.");
-        game.nextPosition2 = "youLose";
+        game.nextPosition2 = "forTheGreaterGood";
         gui.B3.setText("Convince the flock to settle down, tell them you have a plan");
-        game.nextPosition3 = "stepToPigginOut";
+        game.nextPosition3 = "PigginOut";
         gui.B4.setText("...");
         game.nextPosition4 = "";
         theGobbling.setVisited(true);
+    }
+    
+    public void forTheGreaterGood(){
+        gui.gameTextArea.setText("You watch as your turkey bretheren make a valiant push to the farmhouse.\n"
+                + "You know none will survive. You know Farmer Cole and his family will not survive. \n"
+                + "After the wreckage settles,  ");
+        gui.B1.setText("");
+        game.nextPosition1 = "";
+        gui.B2.setText("");
+        game.nextPosition2 = "";
+        gui.B3.setText("");
+        game.nextPosition3 = "";
+        gui.B4.setText("");
+        game.nextPosition4 = "";
+        reset();
+        youLose.setVisited(true);
+    }
+    
+    public void youDied1(){
+        gui.gameTextArea.setText("They look at you kind of funny and shrug as much as pigs can shrug.\n"
+                + "So you fly over the fence and join them. You are having so much fun that you don't notice\n"
+                + "the largest pig rolling directly toward you...\n"
+                + "...you feel 300 lbs of uncooked bacon smash you into the mud\n"
+                + "YOU DIED.");
+        gui.B1.setText("...");
+        game.nextPosition1 = "barn";
+        gui.B2.setText("...");
+        game.nextPosition2 = "barn";
+        gui.B3.setText("...");
+        game.nextPosition3 = "barn";
+        gui.B4.setText("...");
+        game.nextPosition4 = "barn";
+        reset();
+        youDied1.setVisited(true);
+    }
+    
+    public void reset(){
+        barn.setVisited(Boolean.FALSE);
+        turkeyTalk.setVisited(Boolean.FALSE);
+        pigginOut.setVisited(Boolean.FALSE);
+        seeTheLight.setVisited(Boolean.FALSE);
+        theGobbling.setVisited(Boolean.FALSE);
+        farmerChuck.setVisited(Boolean.FALSE);
+        youDied1.setVisited(Boolean.FALSE);
+        youEscaped.setVisited(Boolean.FALSE);
+        bringYourFriends.setVisited(Boolean.FALSE);
+        threeLittlePigs.setVisited(Boolean.FALSE);
+        forTheGreaterGood.setVisited(Boolean.FALSE);
+        youDied2.setVisited(Boolean.FALSE);
+        youDied3.setVisited(Boolean.FALSE);
+        farmHouse.setVisited(Boolean.FALSE);
+        farmHouseTurkey.setVisited(Boolean.FALSE);
+        farmHousePig.setVisited(Boolean.FALSE);
+        farmHouseBoth.setVisited(Boolean.FALSE);
+        youWin.setVisited(Boolean.FALSE);
+        youLose.setVisited(Boolean.FALSE);
     }
 }

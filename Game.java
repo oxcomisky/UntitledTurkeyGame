@@ -32,7 +32,7 @@ public class Game {
         public void actionPerformed(ActionEvent evt){
             String choice = evt.getActionCommand();
                 switch(choice){
-                    case "reset": V.showTitleScreen();break;
+                    case "reset": V.showTitleScreen();story.reset();break;
                     case "start": V.notTitleScreen();story.barn(); break;
                     case "B1": story.selectPosition(nextPosition1); break;
                     case "B2": story.selectPosition(nextPosition2); break;
